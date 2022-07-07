@@ -12,11 +12,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-        <Router/>
+        <QueryClientProvider client={queryClient}>          
+          <Router />
         </QueryClientProvider>
       </BrowserRouter>
     </ThemeProvider>
+    
   );
 }
 
