@@ -8,15 +8,15 @@ export const Login = styled.main`
     background-color: ${theme.colors.bgDefault};
     align-items: center;
     justify-content: center;  
-    
+    `
     }
-    `}
 `;
 
 export const LoginContent = styled.div`
     ${({ theme }) => css`
     width: 50%;
-    height: 75vh;
+    height: 90vh;
+    flex-direction: column;
     border: border-box;
     border: 1px solid ${theme.colors.textColor};
     opacity: ${theme.colors.opacityLogin};
@@ -28,7 +28,7 @@ export const LoginContent = styled.div`
     justify-content: center;
     text-align: center;
     position: absolute;
-        z-index: 999;
+    z-index: 999;
     `}
 `
 
@@ -38,6 +38,8 @@ export const LoginForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center; 
+    text-align: center;
+    border: border-box;
     p {        
         margin: 10px ;
         color: ${theme.colors.textColor};
@@ -45,24 +47,32 @@ export const LoginForm = styled.form`
         font-weight: bolder;
         font-family: ${theme.constants.fontFamily};
         letter-spacing: 0.2em;
-    `};
-    `
-
+    }`}
+`;
 
 export const LoginInput = styled.input`
     ${({ theme }) => css`
     width: 100%;
-    height: 43px;
     color: ${theme.colors.inputColor};
     border-radius: 1rem;
     margin: 1rem;
     padding: .5em;
+    font-size: 1.2em;
     `}
 `;
 
 
 
 export const LoginLogo = styled.img`
-    ${({ theme }) => css``};
-    
+    display: flex;
+    width: 50%;
+    height: 35%;
     `;
+
+export const Text = styled.h1`
+    font-size: 2em;
+    font-weight: bolder;
+    margin: 1rem;
+    padding: 0.5rem;
+
+`
