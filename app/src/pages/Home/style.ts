@@ -15,8 +15,8 @@ export const Home = styled.main`
 
 export const HomeSection = styled.section`
     ${({ theme }) => css`
-        width: 50%;
-        height: 75vh;
+        width: 78%;
+        height: 98vh;
         border: border-box;
         opacity: ${theme.colors.opacityLogin};
         border-radius: 2rem;
@@ -24,7 +24,8 @@ export const HomeSection = styled.section`
         border: border-box;
         display: flex;
         align-items: center;
-        position: absolute;
+        position: fixed;
+        right: 1rem;
         z-index: 999;
         
     }
