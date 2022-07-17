@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <QueryClientProvider client={queryClient}>          
+        <QueryClientProvider client={queryClient}>
           <Router />
         </QueryClientProvider>
       </BrowserRouter>
