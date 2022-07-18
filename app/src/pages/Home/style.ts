@@ -36,7 +36,7 @@ export const HomeSection = styled.section`
         justify-content: space-between;
         padding: 1rem;
         flex-wrap: wrap;
-    }
-    `
-    }
-    `;
+
+        `}
+    
+`;

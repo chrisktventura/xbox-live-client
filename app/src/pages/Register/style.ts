@@ -71,51 +71,10 @@ export const RegisterForm = styled.form`
         font-family: ${({ theme }) => theme.constants.fontFamily};
         margin-bottom: 10px;
     }
-    button{
-        width: 30%;
-        height: 40px;
-        margin: 10px 0;
-        border-radius: 2px;
-        border: 1px solid ${({ theme }) => theme.colors.textColor};
-        background-color: ${({ theme }) => theme.colors.textColor};
-        color: ${({ theme }) => theme.colors.entrarColor};
-        font-size: 1em;
-        transition: all 0.3s;
-        font-weight: bold;
-
-    }
-    /* button:hover{
-        background-color: ${({ theme }) => theme.colors.loginColor};
-        box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
-        color: ${({ theme }) => theme.colors.iconColor1};
-
-
-    } */
     h2 {
         color: ${({ theme }) => theme.colors.textColor};
 
     }
-    a {
-        color: ${({ theme }) => theme.colors.iconColor1};
-        text-decoration: none;
-        font-size: 1em;
-        transition: all 0.3s;
-        width: 30%;
-        height: 40px;
-        border-radius: 2px;
-        border: 1px solid ${({ theme }) => theme.colors.textColor};
-        background-color: ${({ theme }) => theme.colors.textColor};
-        color: ${({ theme }) => theme.colors.entrarColor};
-        font-size: 1em;
-        transition: all 0.3s;
-        font-weight: bold;
-        text-align: center;
-    }
-    a:hover{
-        background-color: ${({ theme }) => theme.colors.loginColor};
-        box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
-        color: ${({ theme }) => theme.colors.iconColor1};
-}
 `}
 
 `;

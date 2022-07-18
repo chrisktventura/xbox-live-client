@@ -1,33 +1,45 @@
-import api from "./Api";
-import swal from "sweetalert";
-interface userLoginObjt {
-  email: string;
+import api from './Api';
+import swal from 'sweetalert';
+
+interface userLoginObj {
+  username: string;
   password: string;
 }
+
+interface userObj {
+  avatar: string;
+  email: string;
+  name: string;
+  password: string;
+}
+
 const loginService = {
-  login: (values: userLoginObjt) =>
-    api
-      .post("/auth", values)
-      .then((response: any) => {
-        return response;
-      })
-      .catch((error: any) => console.log("ERRO NA CHAMADA", error)),
-};
+  login: (values: userLoginObj) => 
+    api.post('/auth/login', values)
+    .then((response: any) => response)
+    .catch((error: any) => console.log('ERRO NA CHAMADA:', error))
+}
+
+const registerService = {
+  registerValues: (values: userObj) => 
+    api.post('/user/create', values)
+    .then((response: any) => response)
+    .catch((error: any) => error.response)
+}
 
 const userLoggedService = {
   userLogged: () =>
-    api
-      .get("/auth")
-      .then((response: any) => response)
-      .then((response: any) => response)     
-      .catch((error: any) => {
-        swal({
-          title: "Erro",
-          text: `${error.message}`,
-          icon: "error",
-          timer: 7000,
-        });
-      }),
-};
+    api.get('/user/findById')
+    .then((response:any) => response)
+    .then((response: any) => response)
+    .catch((error: any) => {
+      swal({
+        title: 'Erro!',
+        text: `${error.message}`,
+        icon: 'error',
+        timer: 7000
+      })
+    })
+}
 
-export { loginService, userLoggedService };
+export { loginService, registerService, userLoggedService };

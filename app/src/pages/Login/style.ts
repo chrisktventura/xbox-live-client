@@ -56,6 +56,10 @@ export const LoginForm = styled.form`
         font-size: 1em;
 
     }
+    input:hover{
+        border: 1px solid ${({ theme }) => theme.colors.textColor};
+        box-shadow: 0 0 10px ${({ theme }) => theme.colors.textColor};
+    }
     label {
         color: ${({ theme }) => theme.colors.textColor};
         font-size: 1.4rem;

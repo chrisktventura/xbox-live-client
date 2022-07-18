@@ -6,6 +6,7 @@ export const ButtonBack = styled.button`
     height: 40px;
     margin: 10px 0;
     border-radius: 2px;
+    cursor: pointer;   
     border: 1px solid ${({ theme }) => theme.colors.textColor};
     background-color: ${({ theme }) => theme.colors.textColor};
     color: ${({ theme }) => theme.colors.entrarColor};
@@ -16,5 +17,10 @@ export const ButtonBack = styled.button`
     background-color: ${({ theme }) => theme.colors.backColor};
     box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
     color: ${({ theme }) => theme.colors.inputColor};
+    }
+    a {
+        text-decoration: none;
+        color: ${({ theme }) => theme.colors.inputColor};
+        font-weight: bold;
     }
     `;
