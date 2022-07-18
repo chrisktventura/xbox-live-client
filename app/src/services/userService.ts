@@ -29,4 +29,22 @@ export const userService = {
       })
     }
   },
+
+  updateUser: async (user: User) => {
+    try {
+      const req = await axios.patch("/user", user);
+      return req;
+    } catch (err) {
+      alert(err);
+    }
+  },
+
+  deleteUser: async (id: string) => {
+    try {
+      const req = await axios.delete(`/user/${id}`);
+      return req;
+    } catch (err) {
+      alert(err);
+    }
+  }
 };

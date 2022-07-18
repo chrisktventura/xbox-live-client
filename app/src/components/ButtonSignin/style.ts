@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const ButtonBack = styled.button`
+export const ButtonSignin = styled.button`
     width: 30%;
     height: 40px;
     margin: 10px 0;

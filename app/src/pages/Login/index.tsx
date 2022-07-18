@@ -9,13 +9,13 @@ import * as S from "./style";
 const logoxxt = require("assets/images/logoxxt.png");
 
 interface userLoginObj {
-    username: string;
+    nickname: string;
     password: string;
   }
 
 const Login = (props: any) => {
     const [values, setValues] = useState({
-        username: "",
+        nickname: "",
         password: "",
     })
 
@@ -62,10 +62,10 @@ const Login = (props: any) => {
         <S.LoginTitle>Faça seu Login</S.LoginTitle>
 
 
-        <input type='text' placeholder="Username" onChange={handleChangesValues}></input>
-        <input type='password' placeholder="Insira sua senha" onChange={handleChangesValues}></input>
+        <input type='text' placeholder="nickname" name="nickname" onChange={handleChangesValues}></input>
+        <input type='password' placeholder="Insira sua senha" name='password' onChange={handleChangesValues}></input>
         
-        <button>Sign up</button>
+        <button onSubmit={loginUser}>Entrar</button>
 
         <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
         </S.LoginForm>

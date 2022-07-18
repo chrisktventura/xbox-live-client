@@ -2,15 +2,16 @@ import api from './Api';
 import swal from 'sweetalert';
 
 interface userLoginObj {
-  username: string;
+  nickname: string;
   password: string;
 }
 
 interface userObj {
-  avatar: string;
+  nickname: string;
   email: string;
-  name: string;
+  cpf: string;
   password: string;
+  confirmPassword: string;
 }
 
 const loginService = {

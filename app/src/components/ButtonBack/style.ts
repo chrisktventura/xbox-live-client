@@ -14,13 +14,8 @@ export const ButtonBack = styled.button`
     transition: all 0.3s;
     font-weight: bold;
     :hover{
-    background-color: ${({ theme }) => theme.colors.backColor};
-    box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
-    color: ${({ theme }) => theme.colors.inputColor};
-    }
-    a {
-        text-decoration: none;
+        background-color: ${({ theme }) => theme.colors.backColor};
+        box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
         color: ${({ theme }) => theme.colors.inputColor};
-        font-weight: bold;
     }
     `;

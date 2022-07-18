@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://xbox-live-server-blue.onrender.com/api",
+  baseURL: "https://xbox-live-server-blue.onrender.com/",
 });
 
 api.interceptors.request.use((config: any) => {

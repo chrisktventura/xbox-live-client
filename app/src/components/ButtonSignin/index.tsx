@@ -1,10 +1,10 @@
 import React from 'react'
 import * as S from './style'
 
-const ButtonBack = () => {
+const ButtonSignin = () => {
   return (
-    <S.ButtonBack>Cadastrar</S.ButtonBack>
+    <S.ButtonSignin type='submit'>Cadastrar</S.ButtonSignin>
   )
 }
 
-export default ButtonBack;
+export default ButtonSignin;
