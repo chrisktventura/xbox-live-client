@@ -1,6 +1,7 @@
 
 import BgDefault from "components/BgDefault";
 import Header from "components/Header";
+import GameCard from "components/GameCard";
 import * as S from "./style";
 
 const Home = () => {
@@ -8,10 +9,9 @@ const Home = () => {
         <S.Home>
 
             <Header/>
-            <BgDefault/>
-            
+            <BgDefault/>            
             <S.HomeSection>
-
+                <GameCard></GameCard>
             </S.HomeSection>
             
         </S.Home>
