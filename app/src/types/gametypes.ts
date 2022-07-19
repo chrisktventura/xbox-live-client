@@ -1,7 +1,11 @@
-export type Game = {
+export interface Game {
     id: string;
-    name: string;
+    title: string;
+    coverImageUrl: string;
     description: string;
-    image: string;
-
+    year?: number;
+    imdbScore?: number;
+    urlTrailerYT?: string;
+    urlGameplayYT?: string;
+    genreName: string;
 }
