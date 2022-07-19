@@ -9,8 +9,13 @@ export const userService = {
     try {
       const req = await axios.post("/user", newUser);
       return req;
-    } catch (err) {
-      alert(err);
+    } catch (error: any) {
+      swal({  
+        title: 'Erro',
+        text: `${error.message}`,
+        icon: 'error',
+        timer: 7000
+      })
     }
   },
 
