@@ -1,12 +1,14 @@
 import api from './Api';
+import { Profile } from '../types/profiletypes';
 
-const profileServices ={
-    allProfile: () =>
-    api.get('/profiles')
-    .then((response: any)=>{
-        return response;
-    })
-    .catch((error:any)=> console.log(error))
+export const profileServices ={
+    allProfile: async (newProfile: Profile) => {
+        try {
+            const req = await api.get("/profile");
+            return req;
+        } catch (err) {
+            alert(err);
+        }
+    }
 }
 
-export 
