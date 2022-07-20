@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const GameCardContent = styled.div`
     ${({ theme }) => css`
-        
-        flex-direction: column;
+        flex-direction: row;
         width: 18rem;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -11,7 +10,9 @@ export const GameCardContent = styled.div`
         text-align: center;
         padding: 0.5rem;
         background-color: white;
-
+        margin: 0.5rem;
+        border: border-box;
+        border-radius: 10px;
     `};
 `
 
@@ -20,6 +21,8 @@ export const GameCardImage = styled.img`
     height: 180px;
     object-fit: cover;
     object-position: center;
+    border-radius: 10px;
+
     
 `
 

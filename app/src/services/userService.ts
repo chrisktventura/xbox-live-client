@@ -7,7 +7,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 export const userService = {
   postUser: async (newUser: User) => {
     try {
-      const req = await axios.post("/user", newUser);
+      const req = await api.post("/user", newUser);
       return req;
     } catch (error: any) {
       swal({  
@@ -39,8 +39,13 @@ export const userService = {
     try {
       const req = await axios.patch("/user", user);
       return req;
-    } catch (err) {
-      alert(err);
+    } catch (error: any) {
+      swal({  
+        title: 'Erro',
+        text: `${error.message}`,
+        icon: 'error',
+        timer: 7000
+      })
     }
   },
 
@@ -48,8 +53,13 @@ export const userService = {
     try {
       const req = await axios.delete(`/user/${id}`);
       return req;
-    } catch (err) {
-      alert(err);
+    } catch (error: any) {
+      swal({  
+        title: 'Erro',
+        text: `${error.message}`,
+        icon: 'error',
+        timer: 7000
+      })
     }
   }
 };

@@ -1,25 +1,33 @@
 import * as S from './style'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+interface GameCardProps {
+  title: string;
+  image: string;
+  year: number;
+  imdb: number;
+}
 
-const GameCard = () => {
+const GameCard = (game: GameCardProps) => {
   return (
-    <S.GameCardContent>
-      
-      <S.GameCardImage src='https://i.ytimg.com/vi/TeO3Vaju8lg/sddefault.jpg'/>
 
-      <S.GameCardTitle>Street Chaves</S.GameCardTitle>
 
-      <S.GameCardYear>2019</S.GameCardYear>
 
-      <S.GameCardImdb>4</S.GameCardImdb>
+        <S.GameCardContent>
 
-      
-    
-    </S.GameCardContent>
+          <S.GameCardImage src={`${game.image}`} />
+
+          <S.GameCardTitle>${game.title}</S.GameCardTitle>
+
+          <S.GameCardYear>${game.year}</S.GameCardYear>
+
+          <S.GameCardImdb>${game.imdb}</S.GameCardImdb>
+
+
+
+        </S.GameCardContent>
+
   )
 }
 
-export default GameCard
+export default GameCard;

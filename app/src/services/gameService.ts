@@ -7,45 +7,70 @@ export const GameService = {
         try {
             const req = await api.get('/games')
             return req;
-        } catch (err) {
-            alert(err);
-        }
+        } catch (error: any) {
+            swal({  
+              title: 'Erro',
+              text: `${error.message}`,
+              icon: 'error',
+              timer: 7000
+            })
+          }
     },
     
     gameById: async (id: string) =>{
         try{
             const req = await api.get('/games/' + id)
             return req;
-        } catch(err){
-            alert(err);
-        }
+        }  catch (error: any) {
+            swal({  
+              title: 'Erro',
+              text: `${error.message}`,
+              icon: 'error',
+              timer: 7000
+            })
+          }
     },
     
     createGame: async (game: Game) => {
     try {
             const req = await api.post('/games', game)
             return req;
-        } catch (err) {
-            alert(err);
-        }
+        } catch (error: any) {
+            swal({  
+              title: 'Erro',
+              text: `${error.message}`,
+              icon: 'error',
+              timer: 7000
+            })
+          }
     },
 
     updateGame: async (game: any) => {
         try {
             const req = await api.patch('/games', game)
             return req;
-        } catch (err) {
-            alert(err);
-        }
+        } catch (error: any) {
+            swal({  
+              title: 'Erro',
+              text: `${error.message}`,
+              icon: 'error',
+              timer: 7000
+            })
+          }
     },
    
     deleteGame: async (id: string) => {
         try {
             const req = await api.delete(`/games/${id}`)
             return req;
-        } catch (err) {
-            alert(err);
-        }
+        } catch (error: any) {
+            swal({  
+              title: 'Erro',
+              text: `${error.message}`,
+              icon: 'error',
+              timer: 7000
+            })
+          }
     },
 
 }

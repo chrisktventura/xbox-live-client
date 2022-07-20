@@ -1,6 +1,6 @@
 import * as S from "./style";
 
-const GameList = () => {
+const FavoritesList = () => {
     return (
         
         <S.GameList>
@@ -9,4 +9,4 @@ const GameList = () => {
     )
 }
 
-export default GameList;
+export default FavoritesList;
