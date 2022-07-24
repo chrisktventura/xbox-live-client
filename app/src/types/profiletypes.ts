@@ -4,4 +4,5 @@ export interface Profile {
     imageURL: string;
     userId: string;
     games?: string;
+    favoritos?: string;
 }

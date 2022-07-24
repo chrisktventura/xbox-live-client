@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import BgDefault from 'components/BgDefault'
 import * as S from './style'
 import { BiEdit } from 'react-icons/bi'
-
+import { Profile } from 'types/profiletypes'
+import { User } from 'types/usertypes'
+import { useNavigate } from 'react-router-dom'
 
 const Profiles = () => {
+ 
+  const navigate = useNavigate();
+
+  const [ profile, setProfile ] = useState<Profile[]>([]);
+  const [ userLogged, setUserLogged ] = useState<User[]>([]);
+
   const editIcon = <BiEdit size={20} />
   return (
     <S.ProfileMain>
