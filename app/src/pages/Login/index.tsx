@@ -1,7 +1,5 @@
-import axios from "axios";
 import BgDefault from "components/BgDefault";
 import { useState } from "react";
-import { useQuery } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { loginService } from "services/authService";
 import swall from "sweetalert";
@@ -22,8 +20,6 @@ const Login = (props: any) => {
     let navigate = useNavigate();
 
     const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>)  => {
-        // faco uma copia do objeto no estado (values) e adiciono as pripriedades digitadas pelo usuario
-        // após isso retorno para a função que vai atualizar esse valor no estado da aplicação.
         setValues((values: userLoginObj) => ({
           ...values,
           [event.target.name]: event.target.value
@@ -43,9 +39,8 @@ const Login = (props: any) => {
             icon: 'success',
             timer: 3000,
           })
-          navigate('/');
+          navigate('/profiles');
         }
-        console.log(response.data);
       }
     return (
         <S.Login>

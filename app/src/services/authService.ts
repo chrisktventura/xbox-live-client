@@ -16,7 +16,7 @@ interface userObj {
 
 const loginService = {
   login: (values: userLoginObj) => 
-    api.post('/auth/login', values)
+    api.post('/auth', values)
     .then((response: any) => response)
     .catch((error: any) => console.log('ERRO NA CHAMADA:', error))
 }
