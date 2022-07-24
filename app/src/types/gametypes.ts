@@ -3,7 +3,7 @@ export interface Game {
     title: string;
     coverImageUrl: string;
     description: string;
-    year?: number;
+    year?: string;
     imdbScore?: number;
     urlTrailerYT?: string;
     urlGameplayYT?: string;

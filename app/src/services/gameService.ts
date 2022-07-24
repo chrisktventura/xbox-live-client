@@ -2,7 +2,7 @@ import api from './Api'
 import swal from 'sweetalert'
 import { Game } from '../types/gametypes'
 
-export const GameService = {
+export const gameService = {
     allGames: async (game: Game) => {
         try {
             const req = await api.get('/games')
@@ -19,7 +19,7 @@ export const GameService = {
     
     gameById: async (id: string) =>{
         try{
-            const req = await api.get('/games/' + id)
+            const req = await api.get(`/games/${id}`)
             return req;
         }  catch (error: any) {
             swal({  
@@ -45,9 +45,9 @@ export const GameService = {
           }
     },
 
-    updateGame: async (game: any) => {
+    updateGame: async (id: string) => {
         try {
-            const req = await api.patch('/games', game)
+            const req = await api.patch(`/games/${id}`)
             return req;
         } catch (error: any) {
             swal({  
