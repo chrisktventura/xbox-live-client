@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
     ${({ theme }) => css`
     
     width: 20%;
-    height: 20%;
+    height: 100px;
     left: 0;
     top: 0;
     margin: 10px;

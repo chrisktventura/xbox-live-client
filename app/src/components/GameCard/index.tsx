@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react'
 interface GameCardProps {
   title: string;
   image: string;
-  year: number;
-  imdb: number;
+  year: String;
+  imdbScore: string;
 }
 
 const GameCard = (game: GameCardProps) => {
@@ -21,7 +21,7 @@ const GameCard = (game: GameCardProps) => {
 
           <S.GameCardYear>${game.year}</S.GameCardYear>
 
-          <S.GameCardImdb>${game.imdb}</S.GameCardImdb>
+          <S.GameCardImdb>${game.imdbScore}</S.GameCardImdb>
 
 
 
