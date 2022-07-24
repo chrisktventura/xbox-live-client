@@ -5,17 +5,21 @@ import GameCard from "components/GameCard";
 import * as S from "./style";
 import { useEffect, useState } from "react";
 import { Game } from "types/gametypes";
-import { GameService } from "services/gameService";
+import { gameService } from "services/gameService";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
+    const navigate = useNavigate();
+
+
     const [game, setGame] = useState<Game[]>([]);
 
-    useEffect(()=>{
-        fetch(GameService.allGames('/games'))
-        .then(res => res.json())
-        .then(data => setGame(data))
-    })
+    
+
+    useEffect(() => {
+  
+      }, []);
     return (
         <S.Home>
 
@@ -23,10 +27,15 @@ const Home = () => {
             <BgDefault/>            
             <S.HomeSection>
             {game.map(game => (
-                <GameCard title={`${game.title}`} image={""} year={0} imdb={0}/>
+                <GameCard title={`${game.title}`} image={`${game.coverImageUrl}`} year={`${game.year}`} imdbScore={`${game.imdbScore}`}/>
                 ))}
             </S.HomeSection>
-            
+
+            <S.HomeGenres>
+                <div>
+                    
+                </div>
+                </S.HomeGenres>            
         </S.Home>
     )
 }
