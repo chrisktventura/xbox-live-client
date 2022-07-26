@@ -1,4 +1,13 @@
+import { ButtonSignin } from './../ButtonSignin/style';
 import styled, { css } from "styled-components";
+
+export const EditMain = styled.main`
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    
+`
 
 
 export const FormEditTitle = styled.h1`
@@ -16,8 +25,8 @@ export const FormEdit = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: ${theme.colors.bgDefault};
     `}
 `;
@@ -33,3 +42,16 @@ export const InputEdit = styled.input`
     `}
 `;
 
+export const ButtonEdit = styled.button`
+    ${({ theme }) => css`
+    
+    `}
+`;
+
+export const FormEditGenre = styled.div`
+    ${({ theme }) => css`
+    
+
+
+    `}
+`;

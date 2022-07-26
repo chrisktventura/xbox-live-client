@@ -2,7 +2,7 @@ import BgDefault from 'components/BgDefault';
 import ButtonBack from 'components/ButtonBack';
 import ButtonSignin from 'components/ButtonSignin';
 import React from 'react'
-import { SyntheticEvent, useState } from 'react';
+import { useState } from 'react';
 import { registerService } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert'
@@ -48,7 +48,7 @@ const Register = () => {
         icon: "success",
         timer: 7000,
       })
-      navigate('/')
+      navigate('/profiles')
     }else {
       swal({
         title: 'Erro!',

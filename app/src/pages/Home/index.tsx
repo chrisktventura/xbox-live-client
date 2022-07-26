@@ -1,4 +1,3 @@
-
 import BgDefault from "components/BgDefault";
 import Header from "components/Header";
 import GameCard from "components/GameCard";
@@ -30,6 +29,8 @@ const Home = () => {
                 <GameCard title={`${game.title}`} image={`${game.coverImageUrl}`} year={`${game.year}`} imdbScore={`${game.imdbScore}`}/>
                 ))}
             </S.HomeSection>
+                
+
 
             <S.HomeGenres>
                 <div>

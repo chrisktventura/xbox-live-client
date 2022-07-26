@@ -2,10 +2,11 @@ import api from './Api'
 import swal from 'sweetalert'
 import { Game } from '../types/gametypes'
 
+
 export const gameService = {
-    allGames: async (game: Game) => {
+    allGames: () => {
         try {
-            const req = await api.get('/games')
+            const req = api.get('/games')
             return req;
         } catch (error: any) {
             swal({  
