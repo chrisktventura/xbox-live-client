@@ -1,4 +1,3 @@
-import { ButtonSignin } from './../ButtonSignin/style';
 import styled, { css } from "styled-components";
 
 export const EditMain = styled.main`
