@@ -1,10 +1,10 @@
 import BgDefault from 'components/BgDefault';
 import ButtonBack from 'components/ButtonBack';
-import ButtonSignin from 'components/ButtonSignin';
+
 import React from 'react'
 import { useState } from 'react';
 import { registerService } from '../../services/authService';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert'
 
 import * as S from "./style";
@@ -65,7 +65,7 @@ const Register = () => {
       <BgDefault />
       <S.RegisterBox>
         <S.RegisterForm onSubmit={registerUser}>
-        <S.LoginLogo src={logoxxt}></S.LoginLogo>
+        <S.LoginLogo src={logoxxt}/>
         <S.RegisterTitle>Faça seu Cadastro</S.RegisterTitle>
 
         <label htmlFor="">Username</label>
@@ -103,8 +103,8 @@ const Register = () => {
         ></input>
         <S.divButton>
           
-          <ButtonBack/>
-          <ButtonSignin/>
+          <Link to='/'><ButtonBack /></Link>
+          <S.ButtonSignin onClick={registerUser}>Cadastrar</S.ButtonSignin>
 
         </S.divButton >
         </S.RegisterForm>
