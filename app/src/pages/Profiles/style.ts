@@ -31,18 +31,6 @@ export const ProfileSection = styled.section`
         position: absolute;
         z-index: 999;
         flex-wrap: wrap;
-    /* button{
-        background-color: ${theme.colors.textColor};
-        size: 2rem;
-        border-radius: 1.5rem;
-        text-align: center;
-    }
-    button:hover{
-        background-color: ${theme.colors.loginColor} ;
-        box-shadow: 0 0 15px rgba(0,0,0,0.5);
-
-    } */
-
     `}
 `;
 
