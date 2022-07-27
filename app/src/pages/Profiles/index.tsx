@@ -19,26 +19,13 @@ const Profiles = () => {
       <BgDefault />
 
       <S.ProfileSection>
-        <div>
-          <img src="https://avatars.githubusercontent.com/u/96752298?v=4" alt="" />
-          <p>Chris</p>
-          <button>{editIcon}</button>
-        </div>
-        <div>
-          <img src="https://avatars.githubusercontent.com/u/83729692?v=4" alt="" />
-          <p>Ale Vadio</p>
-          <button>{editIcon}</button>
-        </div>
-        <div>
-          <img src="https://avatars.githubusercontent.com/u/97460632?v=4" alt="" />
-          <p>Thiagão DMC</p>
-          <button>{editIcon}</button>
-        </div>
-        <div>
-          <img src="https://avatars.githubusercontent.com/u/79556805?v=4" alt="" />
-          <p>Dom Peladon</p>
-          <button>{editIcon}</button>
-        </div>
+        
+        <S.ProfileCard>
+          <S.ProfileAvatar src="https://avatars.githubusercontent.com/u/96752298?v=4" alt="" />
+          <S.ProfileName>Chris</S.ProfileName>
+          <S.ProfileBtnEdit>{editIcon}</S.ProfileBtnEdit>
+        </S.ProfileCard>
+        
       </S.ProfileSection>
 
     </S.ProfileMain>

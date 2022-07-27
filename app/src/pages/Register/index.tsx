@@ -68,38 +68,43 @@ const Register = () => {
         <S.LoginLogo src={logoxxt}/>
         <S.RegisterTitle>Faça seu Cadastro</S.RegisterTitle>
 
-        <label htmlFor="">Username</label>
+        
         <input 
         type='text' 
         name='nickname'
         onChange={handleChangeValues}
+        placeholder='nickname'
         ></input>
 
-        <label htmlFor="">Email</label>
+        
         <input
         type='email' 
         name='email'
         onChange={handleChangeValues}
+        placeholder='e-mail@example.com'
         ></input>
 
-        <label htmlFor="">CPF</label>
+        
         <input type='text'
         name='cpf'
         onChange={handleChangeValues}
+        placeholder='12312312312'
         ></input>
 
-        <label htmlFor="">Password</label>
+        
         <input 
         type='password' 
         name='password'
         onChange={handleChangeValues}
+        placeholder='********'
         ></input>
 
-        <label htmlFor="">Confirm Password</label>
+        
         <input 
         type='password' 
         name='confirmPassword'
         onChange={handleChangeValues}
+        placeholder='********'
         ></input>
         <S.divButton>
           
