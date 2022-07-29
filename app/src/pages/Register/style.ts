@@ -23,7 +23,6 @@ ${({ theme }) => css`
     opacity: ${theme.colors.opacityLogin};
     border-radius: 2rem;
     background-color: ${theme.colors.bgDefault};
-    border: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
