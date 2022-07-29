@@ -5,6 +5,9 @@ const FormEdit = () => {
   return (
 
     <S.EditMain>
+
+     <S.EditContainer>
+      <S.EditLeft>
     <S.FormEdit>
       <S.FormEditTitle>
         Editar Jogo
@@ -17,21 +20,40 @@ const FormEdit = () => {
       <S.InputEdit type='text' name='urlTrailerYT' placeholder='URL trailer do Jogo' />
       <S.InputEdit type='text' name='urlGameplayYT' placeholder='URL gameplay do Jogo' />
       <S.InputEdit type='text' name='genreName' placeholder='Gênero' />
+
+
+    <button>atualizar</button>
+      <button>apagar</button>
+
+    </S.FormEdit>
+    </S.EditLeft>
+
+
+    <S.EditRight>
+    <S.FormEdit>
+    <S.FormEditTitle>
+        Inserir Gênero
+      </S.FormEditTitle>
+
+      <S.InputEdit type='text' name='genre' placeholder='Nome do Gênero' />     
+      <button>inserir</button>
+
     </S.FormEdit>
 
     <S.FormEdit>
     <S.FormEditTitle>
-        Editar Gênero
-      </S.FormEditTitle>
+      Atualizar Gênero
+    </S.FormEditTitle>
 
-      <S.InputEdit type='text' name='genre' placeholder='Nome do Gênero' />
-      <S.InputEdit type='text' name='id' placeholder='' />
-
+    <S.InputEdit type='text' name='genre' placeholder='Nome do Gênero' />
+    
+<button>atualizar</button>
     </S.FormEdit>
+      </S.EditRight>
 
+    </S.EditContainer>
 
-
-    </S.EditMain>
+  </S.EditMain>
   )
 }
 

@@ -1,12 +1,43 @@
 import styled, { css } from "styled-components";
 
 export const EditMain = styled.main`
+    ${({ theme }) => css`
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
     justify-content: center;
+    border: border-box;
+    opacity: ${theme.colors.opacityLogin};
+    background-color: ${theme.colors.bgDefault};
+    border: 1px solid ${theme.colors.textColor};
+    position: absolute;
+    z-index: 999;
+    `}
     
 `
+export const EditContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    height: 50vh;
+    justify-content: space-around;
+    align-items: center;
+    border: border-box;
+
+    
+`;
+
+export const EditRight = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+`;
+
+export const EditLeft = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 
 export const FormEditTitle = styled.h1`
@@ -24,16 +55,16 @@ export const FormEdit = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
     background-color: ${theme.colors.bgDefault};
+    padding: 2rem;
+    margin: 1.5rem;
     `}
 `;
 
 export const InputEdit = styled.input`
     ${({ theme }) => css`
     width: 100%;
-    height: 50px;
+    height: 24px;
     border: 1px solid ${theme.colors.inputColor};
     border-radius: 5px;
     padding: 0 10px;
@@ -41,16 +72,4 @@ export const InputEdit = styled.input`
     `}
 `;
 
-export const ButtonEdit = styled.button`
-    ${({ theme }) => css`
-    
-    `}
-`;
 
-export const FormEditGenre = styled.div`
-    ${({ theme }) => css`
-    
-
-
-    `}
-`;
