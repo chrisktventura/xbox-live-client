@@ -48,6 +48,8 @@ const Login = (props: any) => {
 
             <BgDefault />
 
+            
+
             <S.LoginContent>
 
                 <S.LoginLogo src={logoxxt}></S.LoginLogo>
