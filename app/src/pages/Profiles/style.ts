@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 
-
 export const ProfileMain = styled.main`
     ${({ theme }) => css`  
         width: 100%;
@@ -14,7 +13,6 @@ export const ProfileMain = styled.main`
         
         `}
 `;
-
 
 export const ProfileSection = styled.section`
     ${({ theme }) => css`

@@ -6,3 +6,8 @@ export interface Profile {
     games?: string;
     favoritos?: string;
 }
+
+export interface ProfileEdit {
+    name: string;
+    imageURL: string;
+}

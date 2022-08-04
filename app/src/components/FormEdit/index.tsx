@@ -1,5 +1,6 @@
 import React from 'react'
 import * as S from './style'
+import { gameService } from 'services/gameService'
 
 const FormEdit = () => {
   return (
