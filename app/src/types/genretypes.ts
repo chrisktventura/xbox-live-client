@@ -1,4 +1,4 @@
-export interface genreObject {
+export interface Genre {
     id?: string;
     name: string;
 }

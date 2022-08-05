@@ -3,7 +3,7 @@ export interface Profile {
     name: string;
     imageURL: string;
     userId: string;
-    games?: string;
+    gameId?: string;
     favoritos?: string;
 }
 
