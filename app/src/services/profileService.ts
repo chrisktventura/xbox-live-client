@@ -42,5 +42,31 @@ export const profileServices ={
               })
         }
     },
+    updateProfile: async (values: ProfileEdit) => {
+        try {
+            const req = await api.patch("/profile", values);
+            return req;
+        } catch (error: any) {
+            swal({  
+                title: 'Erro',
+                text: `${error.message}`,
+                icon: 'error',
+                timer: 7000
+              })
+        }
+    },
+    deleteProfile: async (id: string) => {
+        try {
+            const req = await api.delete(`/profile/${id}`);
+            return req;
+        } catch (error: any) {
+            swal({  
+                title: 'Erro',
+                text: `${error.message}`,
+                icon: 'error',
+                timer: 7000
+              })
+        }
+    }
 }
 

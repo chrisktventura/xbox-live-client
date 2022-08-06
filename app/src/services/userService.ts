@@ -1,9 +1,7 @@
-import axios from "axios";
 import { User, UserEdit } from "../types/usertypes";
 import api from "./Api";
 import swal from 'sweetalert'
-axios.defaults.baseURL = "https://xbox-live-server-blue.onrender.com/api";
-axios.defaults.headers.post["Content-Type"] = "application/json";
+
 export const userService = {
   createUser: async (newUser: User) => {
     try {
@@ -35,7 +33,7 @@ export const userService = {
 
   updateUser: async (user: UserEdit) => {
     try {
-      const req = await axios.patch("/user", user);
+      const req = await api.patch("/user", user);
       return req;
     } catch (error: any) {
       swal({  
@@ -49,7 +47,7 @@ export const userService = {
 
   deleteUser: async (id: string) => {
     try {
-      const req = await axios.delete(`/user/${id}`);
+      const req = await api.delete(`/user/${id}`);
       return req;
     } catch (error: any) {
       swal({  
