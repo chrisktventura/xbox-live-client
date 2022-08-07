@@ -29,7 +29,7 @@ export const profileServices ={
               })
         }
     },
-    createProfile: async (values: ProfileEdit) => {
+    createProfile: async (values: Profile) => {
 		try{ 
             const req = await api.post("/profile", values);
             return req;
@@ -42,9 +42,12 @@ export const profileServices ={
               })
         }
     },
-    updateProfile: async (values: ProfileEdit) => {
+    updateProfile: async (id: string, profile: ProfileEdit) => {
         try {
-            const req = await api.patch("/profile", values);
+        const req = await api.patch(`/profile/${id}`, {
+            name: profile.name,
+            imageURL: profile.imageURL,
+        });
             return req;
         } catch (error: any) {
             swal({  

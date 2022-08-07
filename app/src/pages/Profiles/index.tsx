@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import BgDefault from 'components/BgDefault'
 import * as S from './style'
 import { BiEdit } from 'react-icons/bi'
-import { Profile } from 'types/profiletypes'
+// import { Profile, ProfileEdit } from 'types/profiletypes'
 import { profileServices } from 'services/profileService'
 import { User, UserEdit } from 'types/usertypes'
 import { useNavigate } from 'react-router-dom'
@@ -11,44 +11,71 @@ import { userLoggedService } from 'services/authService'
 import swall from 'sweetalert'
 import { Modal } from 'react-bootstrap'
 
+interface Profile {
+  id: string;
+  name: string;
+  imageURL: string;
+  userId: string;
+  gameId?: string;
+  favoritos?: string;
+}
 
+interface ProfileEdit {
+    name: string;
+    imageURL: string;
+}
 
 const Profiles = () => {
 
-  const navigate = useNavigate();
+  const [profile, setProfile] = useState<Profile[]>([])
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-
-  const [profile, setProfile] = useState<Profile[]>([]);
-
-  const [userLogged, setUserLogged] = useState<User>({
-    id: "",
-    nickname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    cpf: "",
+  const [profileEdit, setProfileEdit] = useState<ProfileEdit>({
+    name: '',
+    imageURL: '',
   });
 
+  const [user, setUser] = useState<User>({
+    id: '',
+    nickname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    cpf: '',
+  })
 
+  const [userEdit, setUserEdit] = useState<UserEdit>({
+    nickname: '',
+    password: '',
+    confirmPassword: '',
+  })
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function openModal () {
+    setModalIsOpen(true);
+  }
+
+  function closeModal (){
+    setModalIsOpen(false);
+  }
+
+  const getUserLogged = async () => {
+    const response = await userLoggedService.userLogged();
+
+    localStorage.setItem("idUser", response.data.id);
+    getUserLogged();
+  };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const userEdit: UserEdit = {
+    const upUser: UserEdit = {
       nickname: event.currentTarget.nickname.value,
       password: event.currentTarget.password.value,
       confirmPassword: event.currentTarget.confirmPassword.value,
     };
-    await userService.updateUser(userLogged.id, userEdit);
+    await userService.updateUser(getUserLogged.id, upUser);
     swall({
-      title: "Sucess!",
+      title: "Certinho!",
       text: "Usuário alterado com sucesso!",
       icon: "success",
       timer: 3000,
@@ -57,72 +84,64 @@ const Profiles = () => {
     getUserLogged();
   }
 
+  const custonStyle = {
+    width: "100%",
+    height: "100%",
+
+  };
+
   useEffect(() => {
     getUserLogged();
   }, []);
 
-  const custonStyle = {
-    content: { 
-
-   },
-
-  }
 
 
-  const jwt = localStorage.getItem("jwt");
 
-  const getUserLogged = async () => {
-    const response = await userLoggedService.userLogged();
+const editIcon = <BiEdit size={20} />
 
-    localStorage.setItem("idUser", response.data.id);
-    setUserLogged(response.data);
-  };
+return (
 
-  function logout() {
-    setUserLogged({
-      id: "",
-      nickname: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      cpf: "",
-    })
-    localStorage.removeItem(`jwt`)
+  <S.ProfileMain>
+    <BgDefault />
 
-    swall({
-      title: "Certinho!",
-      text: "Usuário deslogado com sucesso!",
-      icon: "success",
-      timer: 5000,
+    <S.ProfileSection>
 
-    })
-    navigate('/')
-  }
+      <S.ProfileCard>
+        <S.ProfileAvatar src={profile.imageURL} />
+        <S.ProfileName>{profile.name}</S.ProfileName>
+        <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
+      </S.ProfileCard>
 
-  const editIcon = <BiEdit size={20} />
-  return (
-    <S.ProfileMain>
-      <BgDefault />
+    </S.ProfileSection>
 
-      <S.ProfileSection>
-        {/*  */}
-        <S.ProfileCard>
-          <S.ProfileAvatar src={profile.imageURL} />
-          <S.ProfileName>{profile.name}</S.ProfileName>
-          <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
-        </S.ProfileCard>
+    <Modal
+      isOpen={openModal}
+      onRequestClose={closeModal}
+      style={custonStyle}
+      key='index'>
+      <S.ModalContent>
 
-      </S.ProfileSection>
-
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={custonStyle}>
         <Modal.Title>Editar Perfil</Modal.Title>
-      </Modal>
 
-    </S.ProfileMain>
-  )
+        <S.ModalForm onSubmit={handleSubmit}>
+          <input type="text" name="nickname" placeholder="Nome" />
+          <input type="password" name="password" placeholder="Senha" />
+          <input type="password" name="confirmPassword" placeholder="Confirmar Senha" />
+          <S.ModalBtn type="submit" value="Salvar" />
+        </S.ModalForm>
+
+        <S.ModalBtn onClick={closeModal} value="Cancelar" />
+
+
+      </S.ModalContent>
+
+
+
+    </Modal>
+
+  </S.ProfileMain>
+)
 }
+
 
 export default Profiles

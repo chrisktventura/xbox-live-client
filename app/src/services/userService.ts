@@ -31,7 +31,7 @@ export const userService = {
     }
   },
 
-  updateUser: async (user: UserEdit) => {
+  updateUser: async (user: UserEdit, e:any) => {
     try {
       const req = await api.patch("/user", user);
       return req;

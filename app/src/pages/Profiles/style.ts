@@ -74,3 +74,52 @@ export const ProfileBtnEdit = styled.button`
     }
     `}
 `;
+
+export const ModalContent = styled.div`
+    ${({ theme }) => css`
+    width: 50%;
+    height: 90vh;
+    flex-direction: column;
+    border: border-box;
+    border: 1px solid ${theme.colors.textColor};
+    opacity: ${theme.colors.opacityLogin};
+    border-radius: 2rem;
+    background-color: ${theme.colors.bgDefault};
+    display: flex;
+    `}
+`
+
+export const ModalForm = styled.form`
+    ${({ theme }) => css`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    input{
+        width: 50%;
+        height: 40px;
+        border-radius: 2px;
+        border: 1px solid ${({ theme }) => theme.colors.textColor};
+        padding: 0 10px;
+        margin-bottom: 10px;
+        font-size: 1em;
+
+    }
+    `}
+`
+
+export const ModalBtn = styled.button`
+    ${({ theme }) => css`
+    background-color: ${theme.colors.textColor};
+    size: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    :hover{
+        background-color: ${theme.colors.loginColor} ;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+        
+    `}
+`
