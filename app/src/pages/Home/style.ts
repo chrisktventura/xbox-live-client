@@ -28,9 +28,8 @@ export const HomeSection = styled.section`
         align-items: center;
         position: fixed;
         right: 1rem;
-        z-index: 999;
-        
-    }
+        z-index: 999;       
+
     div {
         display: flex;
         flex-direction: row;
@@ -39,9 +38,13 @@ export const HomeSection = styled.section`
         padding: 1rem;
         flex-wrap: wrap;
 
-        }`
- }   
+    }
+
+`}
+    
 `;
+   
+
 
 export const HomeGenres = styled.div`
     ${({ theme }) => css`
@@ -60,15 +63,6 @@ export const HomeGenres = styled.div`
         right: 1rem;
         z-index: 999;
         
-    }
-    div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        flex-wrap: wrap;
-
-        }`
-}
+    `}    
 `;
+

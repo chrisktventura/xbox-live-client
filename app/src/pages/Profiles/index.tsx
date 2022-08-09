@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import BgDefault from 'components/BgDefault'
 import * as S from './style'
 import { BiEdit } from 'react-icons/bi'
-// import { Profile, ProfileEdit } from 'types/profiletypes'
+import { Profile, ProfileEdit } from 'types/profiletypes'
 import { profileServices } from 'services/profileService'
 import { User, UserEdit } from 'types/usertypes'
 import { useNavigate } from 'react-router-dom'
@@ -10,20 +10,6 @@ import { userService } from 'services/userService'
 import { userLoggedService } from 'services/authService'
 import swall from 'sweetalert'
 import { Modal } from 'react-bootstrap'
-
-interface Profile {
-  id: string;
-  name: string;
-  imageURL: string;
-  userId: string;
-  gameId?: string;
-  favoritos?: string;
-}
-
-interface ProfileEdit {
-    name: string;
-    imageURL: string;
-}
 
 const Profiles = () => {
 
@@ -59,8 +45,8 @@ const Profiles = () => {
     setModalIsOpen(false);
   }
 
-  const getUserLogged = async () => {
-    const response = await userLoggedService.userLogged();
+  const getUserLogged = () => {
+    const response = userLoggedService.userLogged();
 
     localStorage.setItem("idUser", response.data.id);
     getUserLogged();

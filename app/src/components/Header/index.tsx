@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import * as S from "./style";
+import { Profile } from 'types/profiletypes'
+import { profileServices } from 'services/profileService';
+import { Link } from 'react-router-dom';
+import { Fav } from 'types/favtypes';
+import { Game } from 'types/gametypes';
+import FavoritesGameCards from 'components/Favorites';
 const logo = require("assets/images/logo.png");
 
+interface Props {
+  game: Game[];
+  profile: Profile[];
+}
 
-const Header = () => {
+const Header = (props: Props) => {
+
+  const [profile, setProfile] = useState<Profile>([]);
+
+
+  useEffect(() => {    
+  },[setProfile]);
+
+
   return (
 
     <S.HeaderContainer>
@@ -11,8 +29,17 @@ const Header = () => {
           <img src={logo} alt="logo" />
         </S.HeaderLogo>
       <S.HeaderAvatar>
-        <img src="https://cdn.pixabay.com/photo/2021/02/18/20/52/goku-6028390_1280.png" alt="" />
+        <img src={profile.imageURL} alt="" />
       </S.HeaderAvatar>
+      
+      <h1>Favoritos</h1>
+
+      <FavoritesGameCards game={props.game} profile={props.profile} />
+      
+      <S.HeaderFooter>
+      <S.BtnLogout >Logout</S.BtnLogout>
+      </S.HeaderFooter>
+
     </S.HeaderContainer>
 
   )

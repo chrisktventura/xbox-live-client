@@ -1,7 +1,7 @@
 export interface Profile {
     id: string;
     name: string;
-    imageURL: string;
+    imageURL?: string;
     userId: string;
     gameId?: string;
     favoritos?: string;
