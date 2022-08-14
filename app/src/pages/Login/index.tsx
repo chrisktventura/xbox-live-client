@@ -1,76 +1,87 @@
 import BgDefault from "components/BgDefault";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { loginService } from "services/authService";
-import swall from "sweetalert";
+import { Link } from "react-router-dom";
 import * as S from "./style";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useAuth } from "context/auth";
+import swal from "sweetalert";
+import { api } from "services/api";
+
 const logoxxt = require("assets/images/logoxxt.png");
 
-interface userLoginObj {
-    nickname: string;
-    password: string;
-  }
+interface LoginData {
+  nickname: string;
+  password: string;
+}
 
-const Login = (props: any) => {
-    const [values, setValues] = useState({
-        nickname: "",
-        password: "",
-    })
+const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("O formato de e-mail está inválido")
+    .required("Campo de e-mail obrigatório"),
 
-    let navigate = useNavigate();
-
-    const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>)  => {
-        setValues((values: userLoginObj) => ({
-          ...values,
-          [event.target.name]: event.target.value
-        }))
-      }
-
-
-      const loginUser = async (event: React.SyntheticEvent) => {
-        event.preventDefault();
-        const response = await loginService.login(values)
-        const jwt = response.data.token;
-    
-        if(jwt) {
-          localStorage.setItem('jwtLocalStorage', jwt);
-          swall({
-            title: 'Seja bem vindo',
-            icon: 'success',
-            timer: 3000,
-          })
-          navigate('/profiles');
-        }
-      }
-    return (
-        <S.Login>
-           
-
-            <BgDefault />
-
-            
-
-            <S.LoginContent>
-
-                <S.LoginLogo src={logoxxt}></S.LoginLogo>
+  password: yup
+    .string()
+    .min(8, "Sua senha deve ter no mínimo 8 caracteres")
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      "Sua senha deve ter no mímino 1 caracter especial, um número e uma letra maiúscula"
+    )
+    .required("Campo de senha obrigatório"),
+});
 
 
-                <S.LoginForm onSubmit={loginUser}>
-        <S.LoginTitle>Faça seu Login</S.LoginTitle>
+const Login = () => {
+  const { login } = useAuth();
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
 
-        <input type='text' placeholder="nickname" name="nickname" onChange={handleChangesValues}></input>
-        <input type='password' placeholder="Insira sua senha" name='password' onChange={handleChangesValues}></input>
-        
-        <button onSubmit={loginUser}>Entrar</button>
+  const handleLogin = (data: LoginData) => {
+    api
+      .post("/auth/login", data)
+      .then((res) => {
+        login({ token: res.data.token, user: res.data.user });
+      })
+      .catch(() => {
+        swal("Usuário ou senha inválido");
+      });
+  };
 
-        <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
+
+  return (
+    <S.Login>
+      <BgDefault />
+
+      <S.LoginContent>
+
+        <S.LoginLogo src={logoxxt}></S.LoginLogo>
+
+        <S.LoginForm onSubmit={handleSubmit(handleLogin)}>
+
+          <S.LoginTitle>Faça seu Login</S.LoginTitle>
+
+          <input type='text' placeholder="nickname" {...register("nickname")}></input>
+          <input type='password' placeholder="Insira sua senha" 
+          {...register("password")}></input>
+          <S.ErrorMessage>
+          {errors.nickname?.message || errors.password?.message}
+          </S.ErrorMessage>
+          <button type='submit'>Entrar</button>
+
+          <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
+          
         </S.LoginForm>
-                
-            </S.LoginContent>
 
-        </S.Login>
-    );
+      </S.LoginContent>
+
+    </S.Login>
+  );
 };
 
 export default Login;

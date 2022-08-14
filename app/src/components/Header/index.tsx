@@ -15,8 +15,9 @@ interface Props {
 
 const Header = (props: Props) => {
 
-  const [profile, setProfile] = useState<Profile>([]);
+  const [profile, setProfile] = useState<Profile>();
 
+  const [game, setGame] = useState<Game>();
 
   useEffect(() => {    
   },[setProfile]);
@@ -29,12 +30,12 @@ const Header = (props: Props) => {
           <img src={logo} alt="logo" />
         </S.HeaderLogo>
       <S.HeaderAvatar>
-        <img src={profile.imageURL} alt="" />
+        <img src={profile?.imageURL} alt="" />
       </S.HeaderAvatar>
       
       <h1>Favoritos</h1>
 
-      <FavoritesGameCards game={props.game} profile={props.profile} />
+      <FavoritesGameCards/>
       
       <S.HeaderFooter>
       <S.BtnLogout >Logout</S.BtnLogout>

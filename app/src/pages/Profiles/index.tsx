@@ -13,28 +13,7 @@ import { Modal } from 'react-bootstrap'
 
 const Profiles = () => {
 
-  const [profile, setProfile] = useState<Profile[]>([])
-
-  const [profileEdit, setProfileEdit] = useState<ProfileEdit>({
-    name: '',
-    imageURL: '',
-  });
-
-  const [user, setUser] = useState<User>({
-    id: '',
-    nickname: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    cpf: '',
-  })
-
-  const [userEdit, setUserEdit] = useState<UserEdit>({
-    nickname: '',
-    password: '',
-    confirmPassword: '',
-  })
-
+  
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal () {
@@ -76,13 +55,6 @@ const Profiles = () => {
 
   };
 
-  useEffect(() => {
-    getUserLogged();
-  }, []);
-
-
-
-
 const editIcon = <BiEdit size={20} />
 
 return (
@@ -93,8 +65,8 @@ return (
     <S.ProfileSection>
 
       <S.ProfileCard>
-        <S.ProfileAvatar src={profile.imageURL} />
-        <S.ProfileName>{profile.name}</S.ProfileName>
+        <S.ProfileAvatar src={profile?.imageURL} />
+        <S.ProfileName>{profile?.name}</S.ProfileName>
         <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
       </S.ProfileCard>
 

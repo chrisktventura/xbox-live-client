@@ -118,3 +118,15 @@ export const LoginLogo = styled.img`
 //     padding: 0.5rem;
 
 // `
+
+
+export const ErrorMessage = styled.p`
+  ${({ theme }) => css`
+    color: red;
+    align-self: center;
+    font-size: small;
+    height: 2rem;
+    padding: 0 2rem;
+    text-align: center;
+  `}
+`;

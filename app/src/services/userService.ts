@@ -1,5 +1,5 @@
 import { User, UserEdit } from "../types/usertypes";
-import api from "./Api";
+import api from "./api";
 import swal from 'sweetalert'
 
 export const userService = {
