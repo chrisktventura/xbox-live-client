@@ -6,10 +6,14 @@ import { Profile, ProfileEdit } from 'types/profiletypes'
 import { profileServices } from 'services/profileService'
 import { User, UserEdit } from 'types/usertypes'
 import { useNavigate } from 'react-router-dom'
-import { userService } from 'services/userService'
-import { userLoggedService } from 'services/authService'
 import swall from 'sweetalert'
 import { Modal } from 'react-bootstrap'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from "yup";
+
+
+
 
 const Profiles = () => {
 
@@ -24,30 +28,8 @@ const Profiles = () => {
     setModalIsOpen(false);
   }
 
-  const getUserLogged = () => {
-    const response = userLoggedService.userLogged();
+  const [profile, setProfile] = useState<Profile>();
 
-    localStorage.setItem("idUser", response.data.id);
-    getUserLogged();
-  };
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const upUser: UserEdit = {
-      nickname: event.currentTarget.nickname.value,
-      password: event.currentTarget.password.value,
-      confirmPassword: event.currentTarget.confirmPassword.value,
-    };
-    await userService.updateUser(getUserLogged.id, upUser);
-    swall({
-      title: "Certinho!",
-      text: "Usuário alterado com sucesso!",
-      icon: "success",
-      timer: 3000,
-    });
-    closeModal();
-    getUserLogged();
-  }
 
   const custonStyle = {
     width: "100%",

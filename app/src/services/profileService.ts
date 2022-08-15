@@ -1,4 +1,4 @@
-import api from './api';
+import { api } from './api';
 import { Profile, ProfileEdit } from '../types/profiletypes';
 import swal from 'sweetalert'
 

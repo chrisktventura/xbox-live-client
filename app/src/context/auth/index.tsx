@@ -72,7 +72,7 @@ import {
       const token = localStorage.getItem("token");
   
       if (token) checkTokenExpiration();
-    }, []);
+    }, );
   
     return (
       <AuthContext.Provider value={{ logged, login, logout }}>

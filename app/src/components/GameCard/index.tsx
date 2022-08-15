@@ -6,6 +6,7 @@ interface GameCardProps {
   image: string;
   year: String;
   imdbScore: string;
+  onClick: () => void;
 }
 
 const GameCard = (game: GameCardProps) => {
@@ -15,7 +16,8 @@ const GameCard = (game: GameCardProps) => {
 
         <S.GameCardContent>
 
-          <S.GameCardImage src={`${game.image}`} />
+          <S.GameCardImage         
+          src={`${game.image}`} />
 
           <S.GameCardTitle>${game.title}</S.GameCardTitle>
 

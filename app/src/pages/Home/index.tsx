@@ -9,27 +9,46 @@ import { gameService } from "services/gameService";
 import { useNavigate } from "react-router-dom";
 import { Genre } from "types/genretypes";
 
+import { useGames } from "context/games";
+import { mockedGenres } from "mocks/genres";
+import { mockedGames } from "mocks/games";
+
 const Home = () => {
-    const [game, setGame] = useState<Game[]>([]);  
-    const [genre, setGenre] = useState<Genre[]>([]);
+   const { games } = useGames();
+
+   const [selectGame, setSelectGame] = useState<Game>(
+    mockedGames[0]
+   );
+
+   const [genre, setGenre] = useState<Genre>(mockedGenres[0] || null);
+
+   const filterGames: Game[] = games.filter(
+    (element) => element.id === selectGame.id
+  );
 
     return (
         <S.Home>
 
-            <Header/>
+            {/* <Header/> */}
             <BgDefault/>            
             <S.HomeSection>
-            {game.map(game => (
-                <GameCard title={`${game.title}`} image={`${game.coverImageUrl}`} year={`${game.year}`} imdbScore={`${game.imdbScore}`}/>
+            {games.map(element => (
+                <GameCard
+                 title={`${element.title}`} 
+                 image={`${element.coverImageUrl}`}
+                 year={`${element.year}`} 
+                 imdbScore={`${element.imdbScore}`}
+                 onClick={() => setSelectGame(element)}
+                 />
                 ))}
             </S.HomeSection>
             
             <S.HomeGenres>
-                {genre.map(genre =>(
+                {/* {genre.map(element =>(
                 <div>
-                  <GenreCard name={genre.name}/>
+                  <GenreCard key={setGenre} name={element.name}/>
                 </div>                 
-                ))}
+                ))} */}
                
                 </S.HomeGenres>            
         </S.Home>

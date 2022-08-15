@@ -53,5 +53,5 @@ import {
     );
   };
   
-  export const useProducts = () => useContext(GamesContext);
+  export const useGames = () => useContext(GamesContext);
   
