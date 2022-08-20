@@ -1,8 +1,6 @@
 import BgDefault from "components/BgDefault";
 // import Header from "components/Header";
-// import GameCard from "components/GameCard";
-// import GenreCard from "components/GenreCard";
-// import { gameService } from "services/gameService";
+import { gameService } from "services/gameService";
 // import { useNavigate } from "react-router-dom";
 import * as S from "./style";
 import { useEffect, useState } from "react";
@@ -14,9 +12,12 @@ import { mockedGenres } from "mocks/genres";
 import { mockedGames } from "mocks/games";
 import { GameList } from "components/Favorites/style";
 import GameCard from "components/GameCard";
+import GenreCard from "components/GenreCard";
+import GenreList from "components/GenreList";
 
 const Home = () => {
    const { games } = useGames();
+   
 
    const [selectGame, setSelectGame] = useState<Game>(
     mockedGames[0]
@@ -27,6 +28,7 @@ const Home = () => {
    const filterGames: Game[] = games.filter(
     (element) => element.id === selectGame.id
   );
+    
 
     return (
         <S.Home>
@@ -42,7 +44,7 @@ const Home = () => {
             </S.HomeSection>
             
             <S.HomeGenres>
-               
+                <GenreList genre={[]}/>                            
                 </S.HomeGenres>            
         </S.Home>
     )
