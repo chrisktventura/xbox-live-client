@@ -63,7 +63,7 @@ return (
 
         <Modal.Title>Editar Perfil</Modal.Title>
 
-        <S.ModalForm onSubmit={handleSubmit}>
+        <S.ModalForm >
           <input type="text" name="nickname" placeholder="Nome" />
           <input type="password" name="password" placeholder="Senha" />
           <input type="password" name="confirmPassword" placeholder="Confirmar Senha" />
