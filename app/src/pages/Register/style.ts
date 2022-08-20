@@ -63,13 +63,6 @@ export const RegisterForm = styled.form`
         border: 1px solid ${({ theme }) => theme.colors.textColor};
         box-shadow: 0 0 10px ${({ theme }) => theme.colors.textColor};
     }
-    label {
-        color: ${({ theme }) => theme.colors.textColor};
-        font-size: 1.5em;
-        font-weight: 400;
-        font-family: ${({ theme }) => theme.constants.fontFamily};
-        margin-bottom: 10px;
-    }
     h2 {
         color: ${({ theme }) => theme.colors.textColor};
 
@@ -103,6 +96,25 @@ export const ButtonSignin = styled.button`
         background-color: ${({ theme }) => theme.colors.loginColor};
         box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
         color: ${({ theme }) => theme.colors.iconColor1};
+    }
+    `;
+
+export const ButtonBack = styled.button`
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 2px;
+    cursor: pointer;   
+    border: 1px solid ${({ theme }) => theme.colors.textColor};
+    background-color: ${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.colors.entrarColor};
+    font-size: 1em;
+    transition: all 0.3s;
+    font-weight: bold;
+    :hover{
+        background-color: ${({ theme }) => theme.colors.backColor};
+        box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
+        color: ${({ theme }) => theme.colors.inputColor};
     }
     `;
 
