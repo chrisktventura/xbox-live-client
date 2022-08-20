@@ -7,7 +7,7 @@ const BgDefault = () => {
     const iconArray: Array<any> = Array.apply(null, Array(Math.floor(window.innerHeight / 64))).map(Number.call, Number);
 
     return (
-        <S.BgDefaultContent>
+        <S.BgDefaultContent >
             {iconArray.map((item, index) => {
                 return <S.BgDefaultRow>
                     <S.IconBg>
