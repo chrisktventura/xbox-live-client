@@ -15,7 +15,7 @@ export const Home = styled.main`
 
 export const HomeSection = styled.section`
     ${({ theme }) => css`
-        width: 78%;
+        width: 98%;
         height: 50vh;
         top: 0;
         margin: 10px;
@@ -37,7 +37,6 @@ export const HomeSection = styled.section`
         justify-content: space-between;
         padding: 1rem;
         flex-wrap: wrap;
-
     }
 
 `}
@@ -48,7 +47,7 @@ export const HomeSection = styled.section`
 
 export const HomeGenres = styled.div`
     ${({ theme }) => css`
-        width: 78%;
+        width: 98%;
         height: 23vh;
         bottom: 23vh;
         margin: 10px;
