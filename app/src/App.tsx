@@ -1,24 +1,14 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import theme from 'assets/styles/theme';
-import { ThemeProvider } from 'styled-components';
-import './App.css';
-import Router from './router';
-import { BrowserRouter } from 'react-router-dom';
+import { Toaster } from "react-hot-toast";
+import Router from "./router";
+import "./App.css";
 
-const queryClient = new QueryClient();
-
-function App() {
+const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <Router />
-        </QueryClientProvider>
-      </BrowserRouter>
-    </ThemeProvider>
-    
+    <div>
+      <Toaster position="bottom-center" reverseOrder={false} />
+      <Router />
+    </div>
   );
-}
+};
 
 export default App;
