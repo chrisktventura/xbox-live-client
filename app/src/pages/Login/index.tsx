@@ -1,5 +1,5 @@
 import BgDefault from "components/BgDefault";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,17 +24,13 @@ const loginSchema = yup.object().shape({
   password: yup
     .string()
     .min(8, "Sua senha deve ter no mínimo 8 caracteres")
-    .matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
-      "Sua senha deve ter no mímino 1 caracter especial, um número e uma letra maiúscula"
-    )
     .required("Campo de senha obrigatório"),
 });
 
-
 const Login = () => {
   const { login } = useAuth();
-  
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -69,10 +65,8 @@ const Login = () => {
           <input type='text' placeholder="nickname" {...register("nickname")}></input>
           <input type='password' placeholder="Insira sua senha" 
           {...register("password")}></input>
-          <S.ErrorMessage>
-          {errors.nickname?.message || errors.password?.message}
-          </S.ErrorMessage>
-          <button type='submit'>Entrar</button>
+
+          <button onClick={() => handleSubmit}>Entrar</button>
 
           <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
           

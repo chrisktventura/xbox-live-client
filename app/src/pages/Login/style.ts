@@ -60,14 +60,8 @@ export const LoginForm = styled.form`
         border: 1px solid ${({ theme }) => theme.colors.textColor};
         box-shadow: 0 0 10px ${({ theme }) => theme.colors.textColor};
     }
-    label {
-        color: ${({ theme }) => theme.colors.textColor};
-        font-size: 1.4rem;
-        font-weight: bolder;
-        font-family: ${({ theme }) => theme.constants.fontFamily};
-        margin-bottom: 10px;
-    }
-    button{
+    button
+    {
         width: 50%;
         height: 40px;
         margin: 10px 0;
@@ -84,8 +78,6 @@ export const LoginForm = styled.form`
         background-color: ${({ theme }) => theme.colors.loginColor};
         box-shadow: ${({ theme }) => theme.colors.boxShadowHover};
         color: ${({ theme }) => theme.colors.iconColor1};
-
-
     }
     h2 {
         color: ${({ theme }) => theme.colors.textColor};
@@ -110,14 +102,6 @@ export const LoginLogo = styled.img`
     width: 0 auto;
     height: 25%;
     `;
-
-// export const Text = styled.h1`
-//     font-size: 2em;
-//     font-weight: bolder;
-//     margin: 1rem;
-//     padding: 0.5rem;
-
-// `
 
 
 export const ErrorMessage = styled.p`
