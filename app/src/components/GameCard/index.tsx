@@ -1,34 +1,23 @@
 import * as S from './style'
-import React, { useState, useEffect } from 'react'
+import React from 'react' 
+// { useState, 
+//   useEffect } 
+import { Game } from 'types/gametypes'
 
 interface GameCardProps {
-  title: string;
-  image: string;
-  year: String;
-  imdbScore: string;
-  onClick: () => void;
+  game: Game;
 }
 
-const GameCard = (game: GameCardProps) => {
+const GameCard = ({ game }: GameCardProps) => {
   return (
 
-
-
-        <S.GameCardContent>
-
-          <S.GameCardImage         
-          src={`${game.image}`} />
-
-          <S.GameCardTitle>${game.title}</S.GameCardTitle>
-
-          <S.GameCardYear>${game.year}</S.GameCardYear>
-
-          <S.GameCardImdb>${game.imdbScore}</S.GameCardImdb>
-
-
-
-        </S.GameCardContent>
-
+    <S.GameCardContent>
+      <S.GameCardImage
+        src={`${game.coverImageUrl}`} />
+      <S.GameCardTitle>${game.title}</S.GameCardTitle>
+      <S.GameCardYear>${game.year}</S.GameCardYear>
+      <S.GameCardImdb>${game.imdbScore}</S.GameCardImdb>
+    </S.GameCardContent>
   )
 }
 
