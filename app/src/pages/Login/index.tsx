@@ -16,9 +16,8 @@ interface LoginData {
 }
 
 const loginSchema = yup.object().shape({
-  email: yup
+  nickname: yup
     .string()
-    .email("O formato de e-mail está inválido")
     .required("Campo de e-mail obrigatório"),
 
   password: yup
@@ -29,7 +28,7 @@ const loginSchema = yup.object().shape({
 
 const Login = () => {
   const { login } = useAuth();
-  const navigate = useNavigate();
+  
 
   const {
     register,
@@ -40,7 +39,7 @@ const Login = () => {
 
   const handleLogin = (data: LoginData) => {
     api
-      .post("/auth/login", data)
+      .post("/auth", data)
       .then((res) => {
         login({ token: res.data.token, user: res.data.user });
       })
@@ -63,10 +62,13 @@ const Login = () => {
           <S.LoginTitle>Faça seu Login</S.LoginTitle>
 
           <input type='text' placeholder="nickname" {...register("nickname")}></input>
-          <input type='password' placeholder="Insira sua senha" 
-          {...register("password")}></input>
+          <input type='current-password' 
+          placeholder="Insira sua senha" 
+          {...register('password')}></input>
 
-          <button onClick={() => handleSubmit}>Entrar</button>
+          <button 
+          type="submit"          
+          >Entrar</button>
 
           <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
           

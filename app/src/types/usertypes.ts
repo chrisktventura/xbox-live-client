@@ -5,6 +5,7 @@ export interface User {
   password: string;
   confirmPassword: string;
   cpf?: string;
+  isAdmin: boolean;
   };
 
 export interface UserEdit {  

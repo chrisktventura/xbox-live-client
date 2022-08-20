@@ -36,14 +36,15 @@ import {
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
       setLogged(true);
-      navigate("/");
+      navigate("/profiles");
       swal("Login bem sucedido!");
+      console.log(token, user)
     };
   
     const logout = () => {
       localStorage.clear();
       setLogged(false);
-      navigate("/login");
+      navigate("/");
     };
   
     const checkTokenExpiration = () => {
