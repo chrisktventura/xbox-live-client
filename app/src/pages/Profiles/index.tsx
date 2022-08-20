@@ -11,6 +11,8 @@ import { Modal } from 'react-bootstrap'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from "yup";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 
@@ -40,18 +42,14 @@ const Profiles = () => {
 const editIcon = <BiEdit size={20} />
 
 return (
-
   <S.ProfileMain>
     <BgDefault />
-
-    <S.ProfileSection>
-
+    <S.ProfileSection>      
       <S.ProfileCard>
         <S.ProfileAvatar src={profile?.imageURL} />
         <S.ProfileName>{profile?.name}</S.ProfileName>
         <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
       </S.ProfileCard>
-
     </S.ProfileSection>
 
     <Modal
