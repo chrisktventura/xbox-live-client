@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { AuthProvider } from "./auth";
 import { GamesProvider } from "./games";
 import theme from "../assets/styles/theme";
+import { GenresProvider } from "./genres";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -14,6 +15,8 @@ const Providers = ({ children }: ProvidersProps) => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <AuthProvider>
+          <GenresProvider>{children}
+          </GenresProvider>
           <GamesProvider>{children}</GamesProvider>
         </AuthProvider>
       </ThemeProvider>
