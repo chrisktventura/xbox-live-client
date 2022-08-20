@@ -22,7 +22,7 @@ import {
     {} as GameProviderData
   );
   
-  export const ProductsProvider = ({ children }: GameProviderProps) => {
+  export const GamesProvider = ({ children }: GameProviderProps) => {
     const { logged } = useAuth();
   
     const [games, setGame] = useState<Game[]>([]);
