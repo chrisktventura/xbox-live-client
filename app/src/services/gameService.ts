@@ -1,10 +1,25 @@
-import api from './api'
+import {api} from './api'
 import swal from 'sweetalert'
 import { Game } from '../types/gametypes'
+import { Dispatch, SetStateAction } from 'react';
+
+interface GameModalProps {
+  handleOpenModal: () => void;
+  game?: Game;
+  setGame: Dispatch<SetStateAction<Game | undefined>>;
+}
+
+interface NewGameData {
+  name?: string;
+  description?: string;
+  imageCoverUrl?: string;
+}
 
 
 export const gameService = {
-  allGames: () => {
+
+
+  allGames: (data: Game) => {
     try {
       const req = api.get('/games')
       return req;
