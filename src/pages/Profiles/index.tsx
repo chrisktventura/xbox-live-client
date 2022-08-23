@@ -26,6 +26,8 @@ const Profiles = () => {
     setModalIsOpen(true);
   }
 
+
+
   function closeModal (){
     setModalIsOpen(false);
   }
@@ -62,9 +64,11 @@ return (
         <Modal.Title>Editar Perfil</Modal.Title>
 
         <S.ModalForm >
-          <input type="text" name="nickname" placeholder="Nome" />
-          <input type="password" name="password" placeholder="Senha" />
-          <input type="password" name="confirmPassword" placeholder="Confirmar Senha" />
+
+          
+          <input type="text" name="name" placeholder="Nome" />
+          <input type='url' name='imageURL' placeholder="Imagem de perfil"/>
+
           <S.ModalBtn type="submit" value="Salvar" />
         </S.ModalForm>
 

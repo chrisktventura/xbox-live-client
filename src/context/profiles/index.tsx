@@ -5,6 +5,7 @@ import {
     useState,
     useEffect,
   } from "react";
+//   import swal from "sweetalert";
   import { Profile } from "../../types/profiletypes";
   import { api } from "../../services/api";
   import { useAuth } from "../auth";
@@ -41,6 +42,33 @@ import {
         setProfile(res.data);
       });
     };
+
+    
+
+    // const createProfile = (profile: Profile) => {
+    //     const token = localStorage.getItem("token");
+    //     const headers = {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`,
+    //         },
+    //     };
+
+    //     api.post("/profile", profile, headers).then((res) => {
+    //         console.log(res);
+    //         setProfile(res.data);
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     }).finally(() => {
+    //         handleGetProfile();
+    //     }).finally(() => {
+    //         swal({
+    //             title: "Profile Created",
+    //             text: "Profile created successfully",
+    //             icon: "success",
+    //         });
+    //     });
+
+    // }
   
     useEffect(() => {
       if (logged) handleGetProfile();
