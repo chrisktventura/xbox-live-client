@@ -42,6 +42,23 @@ export const ProfileCard = styled.div`
     flex-wrap: wrap;
 `;
 
+export const NotProfile = styled.div`
+    ${({ theme }) => css`
+    width: 240px;
+    height: 240px;
+    display: flex;
+    background-color: ${theme.colors.bgDefault};
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    h1{
+        color: gray;
+        font-size: 100px;
+    }
+    `}
+`
+
 export const ProfileAvatar = styled.img`
     width: 240px;
     height: 240px;

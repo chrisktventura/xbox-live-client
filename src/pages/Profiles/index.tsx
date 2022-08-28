@@ -48,9 +48,17 @@ return (
     <BgDefault />
     <S.ProfileSection>      
       <S.ProfileCard>
+        {profile ? <> 
         <S.ProfileAvatar src={profile?.imageURL} />
         <S.ProfileName>{profile?.name}</S.ProfileName>
         <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
+        </>
+        :
+        <>
+        <S.NotProfile onClick={openModal}><h1>+</h1></S.NotProfile>
+        <S.ProfileName>Criar perfil</S.ProfileName>
+        </>
+        }
       </S.ProfileCard>
     </S.ProfileSection>
 
@@ -61,7 +69,7 @@ return (
       key='index'>
       <S.ModalContent>
 
-        <Modal.Title>Editar Perfil</Modal.Title>
+        <Modal.Title>{!profile ? "Criar Perfil" : "Editar Perfil"}</Modal.Title>
 
         <S.ModalForm >
 
