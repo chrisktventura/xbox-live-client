@@ -1,7 +1,7 @@
-export interface Fav {
+export interface Favorite {
     id?: string;
     gameId?: string;
-    userId?: string;
+    gameName: string;
     favoritos?: boolean;
     profileId?: string;
 }
