@@ -36,7 +36,7 @@ import {
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
       setLogged(true);
-      navigate("/profiles");
+      navigate("/profile");
       swal("Login bem sucedido!");
       console.log(token, user)
     };
