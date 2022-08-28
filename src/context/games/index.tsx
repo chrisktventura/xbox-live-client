@@ -26,7 +26,7 @@ import {
     const { logged } = useAuth();
   
     const [games, setGame] = useState<Game[]>([]);
-  
+    
     const handleGetGames = () => {
       const token = localStorage.getItem("token");
   
@@ -41,6 +41,8 @@ import {
         setGame(res.data);
       });
     };
+
+
   
     useEffect(() => {
       if (logged) handleGetGames();
