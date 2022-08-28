@@ -5,9 +5,11 @@ import React from 'react'
 
 const GameDetails = () => {
   return (
-        <S.GameDetailsContainer>
+
+    <S.GameDetailsContainer>
+          <BgDefault/>
             <S.GameDetails>
-              
+
             </S.GameDetails>
         </S.GameDetailsContainer>
   )
