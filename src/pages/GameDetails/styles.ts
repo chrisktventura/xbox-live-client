@@ -20,5 +20,26 @@ export const GameDetails = styled.div`
 `;
 
 export const GameDetailsTitle = styled.h1`
+    ${({theme}) => css`
     
+    `}
+
+`
+
+export const UrlGame = styled.iframe`
+    ${({theme}) => css`
+    
+    `}
+`
+
+export const GameDetailsDescription = styled.p`
+    ${({theme}) => css`
+    
+    `}
+`
+
+export const GameDetailsScore = styled.div`
+    ${({theme}) => css`
+    
+    `}
 `

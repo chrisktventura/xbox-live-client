@@ -29,13 +29,11 @@ const loginSchema = yup.object().shape({
 const Login = () => {
   const { login } = useAuth();
   
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
-
 
   const handleLogin = (data: LoginData) => {
     api
@@ -47,7 +45,6 @@ const Login = () => {
         swal("Usuário ou senha inválido");
       });
   };
-
 
   return (
     <S.Login>
@@ -62,13 +59,11 @@ const Login = () => {
           <S.LoginTitle>Faça seu Login</S.LoginTitle>
 
           <input type='text' placeholder="nickname" {...register("nickname")}></input>
-          <input type='current-password' 
+          <input type='password' 
           placeholder="Insira sua senha" 
           {...register('password')}></input>
 
-          <button 
-          type="submit"          
-          >Entrar</button>
+          <button type='submit'>Entrar</button>
 
           <h2>Não possui uma Conta? <Link to='register'>Cadastre-se</Link></h2>
           

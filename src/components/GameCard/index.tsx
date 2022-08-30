@@ -10,16 +10,10 @@ import { Profile } from 'types/profiletypes'
 
 interface GameCardProps {
   game: Game;
-  isFavoritesList: boolean;
-  handleGetFavorites: () => void;
 }
 
 
-const GameCard = ({ 
-  game,
-  isFavoritesList,
-  handleGetFavorites,
-}: GameCardProps) => {
+const GameCard = ({game}: GameCardProps) => {
   const token = localStorage.getItem("token");
 
   const headers = {
@@ -39,7 +33,6 @@ const GameCard = ({
     api
       .post("/favorites", data, headers)
       .then(() => {
-        handleGetFavorites();
         toast.success("Produto favoritado com sucesso!");
       })
       .catch(() => toast.error("Produto já favoritado"));
@@ -58,7 +51,6 @@ const GameCard = ({
     api
       .delete(`/favorites/${favoriteId}`, headers)
       .then(() => {
-        handleGetFavorites();
         toast.success("Jogo removido dos Favoritos com sucesso!");
       })
       .catch(() => toast.error("Erro"));
@@ -71,8 +63,7 @@ const GameCard = ({
       <S.GameCardTitle>${game.title}</S.GameCardTitle>
       <S.GameCardYear>${game.year}</S.GameCardYear>
       <S.GameCardImdb>${game.imdbScore}</S.GameCardImdb>
-      <button
-      onClick={isFavoritesList ? handleRemoveFavorite : handleSetFavorite}></button>
+      <button>x</button>
     </S.GameCardContent>
   )
 }

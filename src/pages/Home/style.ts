@@ -42,7 +42,16 @@ export const HomeSection = styled.section`
 `}
     
 `;
-   
+  
+export const BackButton = styled.div`
+	${() => css`
+		cursor:pointer;
+		padding: 1rem;
+		img {
+		width:2rem;
+		}
+	`}
+`;
 
 
 export const HomeGenres = styled.div`

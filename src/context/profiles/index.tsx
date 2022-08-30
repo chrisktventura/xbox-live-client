@@ -15,7 +15,7 @@ import {
   }
   
   interface ProfileProviderData {
-    profile: Profile[];
+    profiles: Profile[];
     handleGetProfile: () => void;
   }
   
@@ -26,7 +26,7 @@ import {
   export const ProfileProvider = ({ children }: ProfileProviderProps) => {
     const { logged } = useAuth();
   
-    const [profile, setProfile] = useState<Profile[]>([]);
+    const [profiles, setProfile] = useState<Profile[]>([]);
   
     const handleGetProfile = () => {
       const token = localStorage.getItem("token");
@@ -75,7 +75,7 @@ import {
     }, [logged]);
   
     return (
-      <ProfileContext.Provider value={{ profile, handleGetProfile }}>
+      <ProfileContext.Provider value={{ profiles, handleGetProfile }}>
         {children}
       </ProfileContext.Provider>
     );

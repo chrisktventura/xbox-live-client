@@ -1,67 +1,59 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import BgDefault from 'components/BgDefault'
 import * as S from './style'
 import { BiEdit } from 'react-icons/bi'
-import { Profile, ProfileEdit } from 'types/profiletypes'
-import { profileServices } from 'services/profileService'
-import { User, UserEdit } from 'types/usertypes'
+
 import { useNavigate } from 'react-router-dom'
 import swall from 'sweetalert'
 import { Modal } from 'react-bootstrap'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from "yup";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useProfile } from 'context/profiles'
+import ProfileCard from 'components/ProfileCard'
 
 
+const Profiles = () => {  
+  const { profiles } = useProfile();
 
+  const back = require("assets/icons/back.svg")  
+  const navigate = useNavigate();
+  function goToStart() {
+    navigate("/")
+  }
 
-
-const Profiles = () => {
-
-  
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal () {
     setModalIsOpen(true);
   }
-
-
-
   function closeModal (){
     setModalIsOpen(false);
   }
 
-  const [profile, setProfile] = useState<Profile>();
-
-
-  const custonStyle = {
+    const custonStyle = {
     width: "100%",
     height: "100%",
 
   };
+
+  useEffect(() =>{
+    setModalIsOpen(true || false);
+  }, [])
+
 
 const editIcon = <BiEdit size={20} />
 
 return (
   <S.ProfileMain>
     <BgDefault />
-    <S.ProfileSection>      
-      <S.ProfileCard>
-        {profile ? <> 
-        <S.ProfileAvatar src={profile?.imageURL} />
-        <S.ProfileName>{profile?.name}</S.ProfileName>
-        <S.ProfileBtnEdit onChange={openModal} >{editIcon}</S.ProfileBtnEdit>
-        </>
-        :
-        <>
-        <S.NotProfile onClick={openModal}><h1>+</h1></S.NotProfile>
-        <S.ProfileName>Criar perfil</S.ProfileName>
-        </>
-        }
-      </S.ProfileCard>
-    </S.ProfileSection>
+    <S.ProfileSection>
+   
+    <S.ProfileCard>
+       <ProfileCard profile={[]}/>
+    </S.ProfileCard>
 
+        
     <Modal
       isOpen={openModal}
       onRequestClose={closeModal}
@@ -69,7 +61,7 @@ return (
       key='index'>
       <S.ModalContent>
 
-        <Modal.Title>{!profile ? "Criar Perfil" : "Editar Perfil"}</Modal.Title>
+        <Modal.Title>{!profiles ? "Criar Perfil" : "Editar Perfil"}</Modal.Title>
 
         <S.ModalForm >
 
@@ -89,7 +81,9 @@ return (
 
     </Modal>
 
+  </S.ProfileSection>
   </S.ProfileMain>
+
 )
 }
 

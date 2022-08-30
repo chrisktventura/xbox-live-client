@@ -1,8 +1,8 @@
 export interface Profile {
     id?: string;
-    name: string;
+    name?: string;
     imageURL?: string;
-    userId: string;
+    userId?: string;
     gameId?: string;
     favoritos?: string;
 }

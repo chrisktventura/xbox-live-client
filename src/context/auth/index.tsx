@@ -63,10 +63,10 @@ import {
           setLogged(true);
           navigate("/");
         })
-        .catch(() => {
-          logout();
-          swal("Necessário fazer login novamente");
-        });
+        // .catch(() => {
+        //   logout();
+        //   swal("Necessário fazer login novamente");
+        // });
     };
   
     useEffect(() => {

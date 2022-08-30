@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './style'
 import { gameService } from 'services/gameService'
+import { Game } from 'types/gametypes'
+import { Genre } from 'types/genretypes'
 
 const FormEdit = () => {
-  return (
 
+  const [game, setGame] = useState<Game>();
+  const [genre, setGente] = useState<Genre>();
+
+  return (
     <S.EditMain>
 
      <S.EditContainer>
       <S.EditLeft>
     <S.FormEdit>
       <S.FormEditTitle>
-        Editar Jogo
+        {!game ? 'Editar Jogo' : 'Criar jogo'}
       </S.FormEditTitle>
       <S.InputEdit type='text' name='title' placeholder='O nome do Jogo' />
       <S.InputEdit type='text' name='coverImageUrl' placeholder='Imagem Url do Jogo' />
@@ -37,7 +42,7 @@ const FormEdit = () => {
       </S.FormEditTitle>
 
       <S.InputEdit type='text' name='genre' placeholder='Nome do Gênero' />     
-      <button>inserir</button>
+      <button type='submit' >inserir</button>
 
     </S.FormEdit>
 
@@ -48,7 +53,7 @@ const FormEdit = () => {
 
     <S.InputEdit type='text' name='genre' placeholder='Nome do Gênero' />
     
-<button>atualizar</button>
+<button type='submit' >atualizar</button>
     </S.FormEdit>
       </S.EditRight>
 
